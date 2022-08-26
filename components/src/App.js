@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Inputs from "./components/Inputs";
 
 function App() {
+  const [pass, setPass] = useState("");
+  const [name, setName] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <section>
+        <h1>Estado de los componentes y eventos</h1>
+        <Inputs setPassword={setPass} setNames={setName} />
+        {pass === "252525" && <button />}
+        {name === "" ? (
+          <p>Todos los campos son obligatorios</p>
+        ) : (
+          pass === "" && <p>Todos los campos son obligatorios</p>
+        )}
+      </section>
+    </>
   );
 }
-
 export default App;
